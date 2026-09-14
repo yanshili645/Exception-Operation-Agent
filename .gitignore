@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.env
+outputs/agent_demo/
+outputs/live_block_test/
+outputs/demo/*_preview.png
+*.inspect.ndjson
+
