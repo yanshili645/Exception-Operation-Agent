@@ -7,7 +7,7 @@ HTML report plus CSV/JSON evidence files.
 The repository now includes the **PowerWash Operations Exception Agent**:
 
 - `AGENTS.md` defines the repository-level operating charter.
-- `.codex/skills/powerwash-exception-agent/` contains the reusable agent skill,
+- `.agents/skills/powerwash-exception-agent/` contains the reusable agent skill,
   UI metadata, PowerWash rules, live runbook and report contract.
 - Scheduled runs must use live data and stop visibly when a source is blocked.
 
@@ -15,7 +15,7 @@ The repository now includes the **PowerWash Operations Exception Agent**:
 
 Open or import this repository as a ChatGPT Work/Codex project. The root
 `AGENTS.md` supplies the agent charter and the project skill is discovered from
-`.codex/skills/powerwash-exception-agent/`.
+`.agents/skills/powerwash-exception-agent/`.
 
 Before the first live run, configure the three required source secrets described
 in `.env.example` and replace the example staff mapping. Keep the existing
@@ -111,5 +111,5 @@ the exception code, severity, owner, evidence, or calculated variance.
 - Route travel and GPS-based deviations are not included in v0.1.
 - Deputy OAuth refresh is outside this first version; use a securely managed
   access token for the controlled demonstration.
-- The GitHub workflow uses UTC scheduling. Adjust the cron when New Zealand
-  daylight-saving time changes, or use a timezone-aware scheduler later.
+- The GitHub workflow is manual-only during validation. Add a production
+  schedule only after one historical day reconciles with both source systems.
