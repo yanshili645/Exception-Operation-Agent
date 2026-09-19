@@ -1,1 +1,54 @@
-workflow_dispatch:
+name: daily-exception-report
+
+on:
+  workflow_dispatch:
+    inputs:
+      report_date:
+        description: "Operational date in YYYY-MM-DD; blank means previous Auckland day"
+        required: false
+        type: string
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Run tests
+        run: PYTHONPATH=src python -m unittest discover -s tests -v
+
+      - name: Generate exception report
+        env:
+          SERVICEM8_API_KEY: ${{ secrets.SERVICEM8_API_KEY }}
+          DEPUTY_INSTALL_URL: ${{ secrets.DEPUTY_INSTALL_URL }}
+          DEPUTY_ACCESS_TOKEN: ${{ secrets.DEPUTY_ACCESS_TOKEN }}
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
+          AI_MODEL: ${{ vars.AI_MODEL }}
+          POWERWASH_TIMEZONE: Pacific/Auckland
+        run: |
+          DATE_ARG=""
+          if [ -n "${{ github.event.inputs.report_date }}" ]; then
+            DATE_ARG="--date ${{ github.event.inputs.report_date }}"
+          fi
+
+          PYTHONPATH=src python -m powerwash_report.cli \
+            --mode live \
+            $DATE_ARG \
+            --output outputs/latest
+
+      - name: Upload exception report
+        uses: actions/upload-artifact@v4
+        with:
+          name: powerwash-daily-exception-report
+          path: outputs/latest/
+          retention-days: 30workflow_dispatch:
