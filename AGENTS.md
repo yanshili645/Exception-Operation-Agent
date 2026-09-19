@@ -7,7 +7,7 @@ Deputy while preserving a strict boundary between auditable rules and AI advice.
 
 ## Required skill
 
-Use `.codex/skills/powerwash-exception-agent/SKILL.md` for daily runs, report
+Use `.agents/skills/powerwash-exception-agent/SKILL.md` for daily runs, report
 reviews, exception investigations, staff mapping and threshold changes.
 
 ## Default behavior
