@@ -51,4 +51,4 @@ jobs:
         with:
           name: powerwash-daily-exception-report
           path: outputs/latest/
-          retention-days: 30workflow_dispatch:
+          retention-days: 30
