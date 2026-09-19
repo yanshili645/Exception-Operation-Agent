@@ -3,7 +3,7 @@ import unittest
 from datetime import date
 from pathlib import Path
 
-from powerwash_report.connectors import load_file_bundle
+from powerwash_report.connectors import DeputyClient, load_file_bundle
 from powerwash_report.engine import evaluate, load_staff_mapping, summarize
 
 
@@ -34,6 +34,21 @@ class EngineTest(unittest.TestCase):
         summary = summarize(self.rows, self.bundle, date(2026, 9, 13))
         self.assertEqual(summary["total_exceptions"], len(self.rows))
         self.assertEqual(sum(summary["exception_counts"].values()), len(self.rows))
+
+
+class ConnectorTest(unittest.TestCase):
+    def test_deputy_employee_info_list_is_supported(self):
+        client = DeputyClient(
+            "https://example.au.deputy.com", "token", "Pacific/Auckland"
+        )
+        roster = client._normalize_roster({
+            "Id": 10,
+            "Employee": 101,
+            "_DPMetaData": {
+                "EmployeeInfo": [{"DisplayName": "Alice Example"}]
+            },
+        })
+        self.assertEqual(roster["employee_name"], "Alice Example")
 
 
 if __name__ == "__main__":
