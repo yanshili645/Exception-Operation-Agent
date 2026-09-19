@@ -10,6 +10,23 @@ from zoneinfo import ZoneInfo
 from .common import first, parse_dt
 
 
+def _employee_name(raw: dict) -> str:
+    """Read Deputy employee metadata when EmployeeInfo is an object or list."""
+    metadata = raw.get("_DPMetaData", {})
+    metadata_items = metadata if isinstance(metadata, list) else [metadata]
+    for item in metadata_items:
+        if not isinstance(item, dict):
+            continue
+        employee_info = item.get("EmployeeInfo", {})
+        employees = employee_info if isinstance(employee_info, list) else [employee_info]
+        for employee in employees:
+            if isinstance(employee, dict):
+                display_name = first(employee, "DisplayName", "displayName", default="")
+                if display_name:
+                    return str(display_name)
+    return ""
+
+
 def _json_request(url: str, *, headers: dict, method: str = "GET", payload=None):
     data = None if payload is None else json.dumps(payload).encode("utf-8")
     request = urllib.request.Request(url, data=data, headers=headers, method=method)
@@ -150,7 +167,7 @@ class DeputyClient:
         return {
             "roster_id": str(first(raw, "Id", "id", default="")),
             "employee_id": str(first(raw, "Employee", "employee_id", default="")),
-            "employee_name": first(raw.get("_DPMetaData", {}).get("EmployeeInfo", {}), "DisplayName", default=""),
+            "employee_name": _employee_name(raw),
             "start": first(raw, "StartTimeLocalized", "StartTime", "start", default=None),
             "end": first(raw, "EndTimeLocalized", "EndTime", "end", default=None),
             "scheduled_hours": float(first(raw, "TotalTime", "scheduled_hours", default=0) or 0),
@@ -171,7 +188,7 @@ class DeputyClient:
             "timesheet_id": str(first(raw, "Id", "id", default="")),
             "roster_id": str(first(raw, "Roster", "roster_id", default="")),
             "employee_id": str(first(raw, "Employee", "employee_id", default="")),
-            "employee_name": first(raw.get("_DPMetaData", {}).get("EmployeeInfo", {}), "DisplayName", default=""),
+            "employee_name": _employee_name(raw),
             "start": first(raw, "StartTimeLocalized", "StartTime", "start", default=None),
             "end": first(raw, "EndTimeLocalized", "EndTime", "end", default=None),
             "actual_hours": float(first(raw, "TotalTime", "actual_hours", default=0) or 0),
