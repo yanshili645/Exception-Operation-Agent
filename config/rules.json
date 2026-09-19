@@ -1,0 +1,26 @@
+{
+  "timezone": "Pacific/Auckland",
+  "depot_address": "8 Norman Spencer Drive, Papatoetoe, Auckland 2104",
+  "late_job_medium_minutes": 1,
+  "late_job_high_minutes": 31,
+  "late_job_critical_minutes": 61,
+  "late_clock_medium_minutes": 15,
+  "late_clock_high_minutes": 30,
+  "no_show_minutes": 30,
+  "overtime_minutes": 30,
+  "duration_overrun_percent": 20,
+  "duration_overrun_minimum_minutes": 30,
+  "minimum_meal_break_minutes": 30,
+  "maximum_paid_day_hours": 12,
+  "stale_job_hours": 2,
+  "priority_first_sites": [
+    "Moana Fisheries",
+    "Cardinal Logistics",
+    "FedEx Highbrook"
+  ],
+  "after_noon_sites": [
+    "Kalista Drury",
+    "T&G Global Mt Wellington"
+  ]
+}
+

@@ -1,0 +1,34 @@
+{
+  "report_date": "2026-09-13",
+  "overall_status": "Red",
+  "jobs_scheduled": 7,
+  "jobs_completed": 6,
+  "jobs_incomplete": 1,
+  "staff_rostered": 5,
+  "timesheets_received": 4,
+  "scheduled_hours": 42.5,
+  "actual_hours": 35.75,
+  "labour_variance_hours": -6.75,
+  "exception_counts": {
+    "Critical": 3,
+    "High": 9,
+    "Medium": 4,
+    "Low": 0
+  },
+  "total_exceptions": 16,
+  "ai_narrative": {
+    "source": "Deterministic fallback",
+    "suggested_interpretation": "Operations finished 6 of 7 scheduled jobs. The rule engine found 3 critical and 9 high-severity exceptions.",
+    "management_attention": [
+      "Critical: DEP-01 Bob Example — No clock-on/timesheet.",
+      "Critical: JOB-01 Auckland Industrial Services — work_order.",
+      "Critical: JOB-02 Auckland City Couriers — Missing truck and staff."
+    ],
+    "recommended_actions": [
+      "Confirm attendance and arrange coverage if required.",
+      "Confirm cause, contact customer and reschedule.",
+      "Assign resources and investigate the planning failure."
+    ],
+    "confidence": "High for rule counts; no AI root-cause inference used"
+  }
+}

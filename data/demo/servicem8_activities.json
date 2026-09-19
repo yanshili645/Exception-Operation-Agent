@@ -1,0 +1,7 @@
+[
+  {"activity_uuid":"act-1","job_uuid":"job-31410","staff_uuid":"sm-alice","actual_start":"2026-09-13T08:12:00+12:00","actual_end":"2026-09-13T14:42:00+12:00"},
+  {"activity_uuid":"act-2","job_uuid":"job-31411","staff_uuid":"sm-cara","actual_start":"2026-09-13T08:38:00+12:00","actual_end":"2026-09-13T10:38:00+12:00"},
+  {"activity_uuid":"act-3","job_uuid":"job-31412","staff_uuid":"sm-dave","actual_start":"2026-09-13T11:50:00+12:00","actual_end":"2026-09-13T14:05:00+12:00"},
+  {"activity_uuid":"act-4","job_uuid":"job-31415","staff_uuid":"sm-erin","actual_start":"2026-09-13T10:30:00+12:00","actual_end":"2026-09-13T12:00:00+12:00"}
+]
+

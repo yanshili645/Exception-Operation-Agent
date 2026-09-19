@@ -1,0 +1,8 @@
+[
+  {"roster_id":"r-101","employee_id":"101","employee_name":"Alice Example","start":"2026-09-13T07:30:00+12:00","end":"2026-09-13T16:30:00+12:00","scheduled_hours":8.5,"published":true,"open":false,"location":"Auckland"},
+  {"roster_id":"r-102","employee_id":"102","employee_name":"Bob Example","start":"2026-09-13T07:30:00+12:00","end":"2026-09-13T16:30:00+12:00","scheduled_hours":8.5,"published":true,"open":false,"location":"Auckland"},
+  {"roster_id":"r-103","employee_id":"103","employee_name":"Cara Example","start":"2026-09-13T07:30:00+12:00","end":"2026-09-13T16:30:00+12:00","scheduled_hours":8.5,"published":true,"open":false,"location":"Auckland"},
+  {"roster_id":"r-104","employee_id":"104","employee_name":"Dave Example","start":"2026-09-13T07:30:00+12:00","end":"2026-09-13T16:30:00+12:00","scheduled_hours":8.5,"published":true,"open":false,"location":"Auckland"},
+  {"roster_id":"r-105","employee_id":"105","employee_name":"Erin Example","start":"2026-09-13T07:30:00+12:00","end":"2026-09-13T16:30:00+12:00","scheduled_hours":8.5,"published":true,"open":false,"location":"Auckland"}
+]
+
