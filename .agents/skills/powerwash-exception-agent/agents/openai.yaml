@@ -1,0 +1,5 @@
+interface:
+  display_name: "PowerWash Operations Exception Agent"
+  short_description: "Daily ServiceM8 and Deputy exception management"
+  brand_color: "#17365D"
+  default_prompt: "Use $powerwash-exception-agent to generate and explain yesterday’s PowerWash operations exception report."
