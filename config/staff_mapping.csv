@@ -1,7 +1,3 @@
 servicem8_staff_uuid,deputy_employee_id,display_name,active
-sm-alice,101,Alice Example,true
-sm-bob,102,Bob Example,true
-sm-cara,103,Cara Example,true
-sm-dave,104,Dave Example,true
-sm-erin,105,Erin Example,true
-
+8f21c1aa-1234-5678-9012-aabbccddeeff,123,John Smith,true
+902ad781-2345-6789-0123-bbccddeeff00,147,Mary Jones,true
